@@ -1,0 +1,36 @@
+This document serves as a basic explanation of what we did in our file system, parameters of our file system and how to run.
+
+1. What we did in this project
+
+1) inode alloc/free/read/write
+2) block alloc/free/read/write
+3) file operations: mkdir/rmdir/mknod/unlink/read/write/truncate
+4) direct, single indirect, double indirect blocks.
+*5) truncate()
+*6) cached free inode list on superblock.
+
+2. what we need to present
+
+1) persistent test: mount, unmount
+2) file creation/deletion
+3) big file creation/deletion
+4) directory creation/deletion
+5) nested directory creation/deletion
+6) stat file info
+
+3. key parameters
+
+1) block size = 4KB = 4096
+2) number of blocks = 1M = 1048576
+3) file system size = 4GB
+4) maximum length of file name = 252 characters
+5) maximum entries in a directory = 100
+6) maximum file size = 1GB
+7) time to rebuild a filesystem (mkfs): 46 sec
+
+4. steps to run
+1) ./rebuild
+This command resets all the storage and make the root file system. In case the file system is corrupted, this command is useful to rebuild a file system on the disk. Otherwise, you can just use the following command to open the storage.
+2) ./monsterfs -f tmp
+This command opens the storage and be ready for you to do operations on it. "-f" simply means running the file system in the foreground. "tmp" is our mount point.
+
